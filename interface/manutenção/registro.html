@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./registro.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Registrar</title>
+</head>
+
+<body>
+
+    <body>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-top">
+            <a class="navbar-brand" href="#">Lorem</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTopo"
+                aria-controls="navbarTopo" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTopo">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button"
+                            aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Ação</a>
+                            <a class="dropdown-item" href="#">Outra ação</a>
+                            <a class="dropdown-item" href="#">Algo mais aqui</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Link isolado</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <!-- Formulário de registro de manutenção -->
+        <div class="container my-5">
+            <form class="col-md-8 mx-auto" onsubmit="adicionarManutencao(event)">
+                <h2 class="text-center">Registrar manutenção</h2>
+                <br>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="manutencao">Manutenção</label>
+                        <input type="text" class="form-control" id="manutencao" placeholder="Ex: trocar óleo" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="placa">Placa do veículo</label>
+                        <input type="text" class="form-control" id="placa" placeholder="ABC1D23" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="identificacao">Número de identificação</label>
+                        <input type="number" class="form-control" id="identificacao"
+                            placeholder="Identificação do veículo" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="data">Data</label>
+                        <input type="date" class="form-control" id="data" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" class="form-control" id="descricao" placeholder="Descrição">
+                </div>
+                <button type="submit" class="btn btn-primary bg-dark">Enviar</button>
+            </form>
+        </div>
+        </nav>
+
+
+
+
+    </body>
+
+</html>
