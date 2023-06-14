@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./interface.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crete+Round&family=Gloock&family=Prompt:wght@100&family=Roboto&family=Roboto+Slab:wght@600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            padding-top: 56px;
+            background-color: #ffffff;
+        }
+
+        h1,
+        a {
+            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Crete Round', serif;
+            font-family: 'Gloock', serif;
+            font-family: 'Prompt', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto Slab', serif;
+        }
+
+
+
+        .navbar {
+            font-size: 16px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            z-index: 9999;
+        }
+
+        a {
+            color: black;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 56px;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            padding: 48px 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+            border-right: 1px solid #e9ecef;
+            width: 220px;
+        }
+
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        .footer-top {
+            padding-top: 90px;
+            background-color: #fff;
+        }
+
+        .footer-top a {
+            color: #898fa1;
+        }
+
+        .footer-top a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            background-color: #f8f8f8;
+        }
+
+        .copyright {
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        #footer {
+            background-color: #f1f1f1;
+            padding: 20px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated-text {
+            animation: slideIn 1s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-top">
+        <a class="navbar-brand ml-5" href="#">Lorem</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTopo"
+            aria-controls="navbarTopo" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTopo">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Ação</a>
+                        <a class="dropdown-item" href="#">Outra ação</a>
+                        <a class="dropdown-item" href="#">Algo mais aqui</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Link isolado</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid ">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block sidebar">
+                <div class=" sidebar-sticky">
+                    <ul class="nav flex-column ">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <i class="fas fa-home"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-shopping-cart"></i> Orders
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-wrench"></i> Manutenção
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="./manutençao_pendente/pendentes.html">M. Pendentes
+                                </a>
+                                <a class="dropdown-item" href="./manutenção/registro.html">Registrar M. </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" style="color: black;">
+                                <i class="fas fa-truck"></i> Frota
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Registrar Frota</a>
+                                <a class="dropdown-item" href="#">Visualizar Frota</a>
+                            </div>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" style="color: black;">
+                                <i class="fas fa-money-bill"></i> Despesas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Registrar Despesas</a>
+                                <a class="dropdown-item" href="#">Visualizar Despesas</a>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-10 ml-sm-auto main-content">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2 animated-text">Gerenciamento de Manutenção de Frotas</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card 1</h5>
+                                <p class="card-text">This is some text within a card.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card 2</h5>
+                                <p class="card-text">This is some text within a card.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+    <div class="footer-bottom py-3" id="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="mb-0 copyright text-dark">© 2022 copyright todos os direitos reservados </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>
