@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Controle de Despesas de Frota</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.28.3"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Controle de Despesas de Frota</h1>
+
+        <div id="chart"></div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody id="expenses-body">
+                <!-- Os dados das despesas serão preenchidos dinamicamente usando JavaScript -->
+            </tbody>
+        </table>
+
+        <form id="expense-form">
+            <div class="form-group">
+                <label for="expense-date">Data:</label>
+                <input type="date" class="form-control" id="expense-date" required>
+            </div>
+            <div class="form-group">
+                <label for="expense-description">Descrição:</label>
+                <input type="text" class="form-control" id="expense-description" required>
+            </div>
+            <div class="form-group">
+                <label for="expense-amount">Valor:</label>
+                <input type="number" class="form-control" id="expense-amount" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Adicionar Despesa</button>
+        </form>
+    </div>
+
+    <script>
+        // Dados de exemplo para as despesas
+        const expenses = [
+            { date: '2023-06-01', description: 'Combustível', amount: 200 },
+            { date: '2023-06-02', description: 'Manutenção', amount: 500 },
+            { date: '2023-06-05', description: 'Seguro', amount: 300 },
+            { date: '2023-06-08', description: 'Peças de Reposição', amount: 150 },
+            { date: '2023-06-10', description: 'Lavagem', amount: 50 }
+        ];
+
+        // Função para exibir as despesas na tabela e gerar o gráfico
+        function displayExpenses(expenses) {
+            const tableBody = document.getElementById('expenses-body');
+            const chartData = [];
+
+            // Limpa a tabela e o gráfico
+            tableBody.innerHTML = '';
+            chartData.length = 0;
+
+            // Adiciona as despesas à tabela e ao gráfico
+            expenses.forEach(expense => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+          <td>${expense.date}</td>
+          <td>${expense.description}</td>
+          <td>$${expense.amount}</td>
+        `;
+                tableBody.appendChild(row);
+
+                chartData.push({
+                    x: expense.description,
+                    y: expense.amount
+                });
+            });
+
+            // Configurações do gráfico
+            const options = {
+                chart: {
+                    type: 'bar',
+                    height: 350
+                },
+                series: [
+                    {
+                        name: 'Despesas',
+                        data: chartData
+                    }
+                ],
+                xaxis: {
+                    type: 'category'
+                },
+                yaxis: {
+                    labels: {
+                        formatter: function (val) {
+                            return "$" + val;
+                        }
+                    }
+                }
+            };
+
+            // Renderiza o gráfico usando ApexCharts
+            const chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }
+
+        // Manipulador de evento para adicionar uma nova despesa
+        document.getElementById('expense-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Obtém os valores do formulário
+            const date = document.getElementById('expense-date').value;
+            const description = document.getElementById('expense-description').value;
+            const amount = parseFloat(document.getElementById('expense-amount').value);
+
+            // Validação básica dos valores
+            if (date && description && !isNaN(amount)) {
+                // Adiciona a nova despesa à lista
+                expenses.push({ date, description, amount });
+
+                // Atualiza a exibição das despesas
+                displayExpenses(expenses);
+
+                // Limpa os campos do formulário
+                document.getElementById('expense-date').value = '';
+                document.getElementById('expense-description').value = '';
+                document.getElementById('expense-amount').value = '';
+            }
+        });
+
+        // Exibe as despesas iniciais ao carregar a página
+        displayExpenses(expenses);
+    </script>
+</body>
+
+</html>
